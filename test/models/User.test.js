@@ -3,6 +3,8 @@
   Requerimiento 2: Las propiedades `dateCreated` y `lastUpdated` deberán ser datos de tipo fecha que guarden el momento en que se instancie un nuevo objeto de la clase `User`.
   Requerimiento 3: Cada objeto tipo user necesita los siguietes gettes: `getUsername`, `getBio`, `getDateCreated`, `getLastUpdated`.
   Solución: Agrega los getters regresando la propiedad indicada, no olvides usar `this`.
+  Requerimiento 4: Cada objeto necesita los siguientes setters: `setUsername` y `setBio`, para actualizar dichas propiedades.
+  Solución: Agrega los setters usando la palabra `set` y modificando el atributo indicado.
 */
 
 const User = require('./../../app/models/User')
@@ -25,9 +27,17 @@ describe("Unit Tests for User class", () => {
 
   test('2) Add getters', () =>{
     const user = new User(1, "carlogilmar", "Carlo", "Bio")
-    expect(user.getUsername()).toBe("carlogilmar");
-    expect(user.getBio()).toBe("Bio");
-    expect(user.getDateCreated()).not.toBeUndefined();
-    expect(user.getLastUpdated()).not.toBeUndefined();
+    expect(user.getUsername).toBe("carlogilmar");
+    expect(user.getBio).toBe("Bio");
+    expect(user.getDateCreated).not.toBeUndefined();
+    expect(user.getLastUpdated).not.toBeUndefined();
+  });
+
+  test('3) Add setters', () =>{
+    const user = new User(1, "carlogilmar", "Carlo", "Bio")
+    user.setUsername = "Gilmar"
+    expect(user.username).toBe("Gilmar");
+    user.setBio = "New Bio"
+    expect(user.bio).toBe("New Bio");
   });
 })
