@@ -32,14 +32,11 @@ describe("Test for UserView", () => {
     expect(result.error).toMatch(/necesitan tener un valor válido/);
   });
   
-  // test('4) Given a list of users give me the list of usernames', () =>{
-  //   const user1 = UserService.create(1, "carlogilmar1", "Carlo")
-  //   const user2 = UserService.create(1, "carlogilmar2", "Carlo")
-  //   const user3 = UserService.create(1, "carlogilmar3", "Carlo")
-  //   const usernames = UserService.getAllUsernames([user1, user2, user3])
-
-  //   expect(usernames).toContain("carlogilmar1");
-  //   expect(usernames).toContain("carlogilmar2");
-  //   expect(usernames).toContain("carlogilmar3");
-  // });
+  test('4) Create a user by a given valid payload', () =>{
+    const payload = { username: "username", id: 1, name: "name" }
+    const result = UserView.createUser(payload)
+    expect(result.name).toBe("name");
+    expect(result.username).toBe("username");
+    expect(result.id).toBe(1);    
+  });
 })
