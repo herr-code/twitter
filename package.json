@@ -1,0 +1,15 @@
+{
+  "name": "spiderverse",
+  "version": "1.0.0",
+  "description": "Practica 2 Semana 3 Diseño de Software con TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "node index.js"
+  },
+  "author": "herr-code",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.0.3"
+  }
+}
