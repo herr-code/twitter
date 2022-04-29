@@ -7,6 +7,9 @@
   2. El valor de `bio` deberá ser por default para todos los `user` creados.
   
   Requerimiento 2: Agregar un nuevo método estático en `UserService` llamado `getInfo` que al recibir un objeto de la clase `User`, me regrese una lista con todos los valores de los atributos de dicho objeto.  
+
+  Requerimiento 3: Agregar un nuevo método estático en `UserService` llamado `updateUserUsername`, que reciba un objeto de la clase `User` y un nuevo string, que actualizará el valor de `username`. 
+
 */
 
 const UserService = require('./../../app/services/UserService')
@@ -30,11 +33,9 @@ describe("Test for UserService", () => {
     expect(userInfoInList[3]).toBe("Sin bio");
   });
 
-  // test('3) Add setters', () =>{
-  //   const user = new User(1, "carlogilmar", "Carlo", "Bio")
-  //   user.setUsername = "Gilmar"
-  //   expect(user.username).toBe("Gilmar");
-  //   user.setBio = "New Bio"
-  //   expect(user.bio).toBe("New Bio");
-  // });
+  test('3) Update username', () =>{
+    const user = UserService.create(1, "carlogilmar", "Carlo")
+    UserService.updateUserUsername(user, "carlog")
+    expect(user.username).toBe("carlog");
+  });
 })
