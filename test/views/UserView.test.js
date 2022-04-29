@@ -20,14 +20,11 @@ describe("Test for UserView", () => {
     expect(result.error).toMatch(/payload no existe/);
   });
 
-  // test('2) Get all user data in a list', () =>{
-  //   const user = UserService.create(1, "carlogilmar", "Carlo")
-  //   const userInfoInList = UserService.getInfo(user)
-  //   expect(userInfoInList[0]).toBe(1);
-  //   expect(userInfoInList[1]).toBe("carlogilmar");
-  //   expect(userInfoInList[2]).toBe("Carlo");
-  //   expect(userInfoInList[3]).toBe("Sin bio");
-  // });
+  test('2) Return an error object when try to create a new user with a payload with invalid properties', () =>{
+    const payload = { username: null, name: 12, id: "id" }
+    const result = UserView.createUser(payload)
+    expect(result.error).toMatch(/necesitan tener un valor válido/);
+  });
 
   // test('3) Update username', () =>{
   //   const user = UserService.create(1, "carlogilmar", "Carlo")
