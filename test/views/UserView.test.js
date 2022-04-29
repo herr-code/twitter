@@ -26,11 +26,11 @@ describe("Test for UserView", () => {
     expect(result.error).toMatch(/necesitan tener un valor válido/);
   });
 
-  // test('3) Update username', () =>{
-  //   const user = UserService.create(1, "carlogilmar", "Carlo")
-  //   UserService.updateUserUsername(user, "carlog")
-  //   expect(user.username).toBe("carlog");
-  // });
+  test('3) Return an error object when try to create a new user with a payload with missing properties', () =>{
+    const payload = { username: "Username" }
+    const result = UserView.createUser(payload)
+    expect(result.error).toMatch(/necesitan tener un valor válido/);
+  });
   
   // test('4) Given a list of users give me the list of usernames', () =>{
   //   const user1 = UserService.create(1, "carlogilmar1", "Carlo")
